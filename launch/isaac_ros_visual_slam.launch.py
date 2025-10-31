@@ -45,7 +45,6 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
 
     visual_slam_node = ComposableNode(
         package = 'isaac_ros_visual_slam',
-        executable = 'visual_slam_node',
         name = 'visual_slam_node',
         namespace=indexed_robot_name + '/isaac_vio',
         plugin='nvidia::isaac_ros::visual_slam::VisualSlamNode',
