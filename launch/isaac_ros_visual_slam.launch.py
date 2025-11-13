@@ -51,7 +51,7 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
         parameters=[{
             'enable_image_denoising': False,
             'rectified_images': True,
-            'enable_imu_fusion': True,
+            'enable_imu_fusion': False,
             'gyro_noise_density': 0.000244,
             'gyro_random_walk': 0.000019393,
             'accel_noise_density': 0.001862,
