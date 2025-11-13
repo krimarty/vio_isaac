@@ -58,14 +58,14 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
             'accel_random_walk': 0.003,
             'calibration_frequency': 200.0,
             'image_jitter_threshold_ms': 22.00,
-            'base_frame': 'camera_link',
+            'base_frame': 'f450_1_base_link',
             'imu_frame': 'camera_gyro_optical_frame',
             'enable_slam_visualization': True,
             'enable_landmarks_view': True,
             'enable_observations_view': True,
             'camera_optical_frames': [
-                'camera_infra1_optical_frame',
-                'camera_infra2_optical_frame',
+                'f450_1_realsense_d435_infra1_optical_frame',
+                'f450_1_realsense_d435_infra2_optical_frame',
             ],
         }],
         remappings=[
