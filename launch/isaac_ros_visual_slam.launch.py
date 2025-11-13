@@ -48,6 +48,39 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
         name = 'visual_slam_node',
         namespace=indexed_robot_name + '/isaac_vio',
         plugin='nvidia::isaac_ros::visual_slam::VisualSlamNode',
+        parameters=[{
+            'enable_image_denoising': False,
+            'rectified_images': True,
+            'enable_imu_fusion': True,
+            'gyro_noise_density': 0.000244,
+            'gyro_random_walk': 0.000019393,
+            'accel_noise_density': 0.001862,
+            'accel_random_walk': 0.003,
+            'calibration_frequency': 200.0,
+            'image_jitter_threshold_ms': 22.00,
+            'base_frame': 'camera_link',
+            'imu_frame': 'camera_gyro_optical_frame',
+            'enable_slam_visualization': True,
+            'enable_landmarks_view': True,
+            'enable_observations_view': True,
+            'camera_optical_frames': [
+                'camera_infra1_optical_frame',
+                'camera_infra2_optical_frame',
+            ],
+        }],
+        remappings=[
+            ('visual_slam/image_0',
+            f'/{indexed_robot_name}/sensors/realsense_d435/realsense_camera_node/infra1/image_rect_raw'),
+            
+            ('visual_slam/camera_info_0',
+            f'/{indexed_robot_name}/sensors/realsense_d435/realsense_camera_node/infra1/camera_info'),
+            
+            ('visual_slam/image_1',
+            f'/{indexed_robot_name}/sensors/realsense_d435/realsense_camera_node/infra2/image_rect_raw'),
+            
+            ('visual_slam/camera_info_1',
+            f'/{indexed_robot_name}/sensors/realsense_d435/realsense_camera_node/infra2/camera_info'),
+        ],
     )
 
     visual_slam_container = ComposableNodeContainer(
