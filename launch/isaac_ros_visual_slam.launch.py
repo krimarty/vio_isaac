@@ -51,7 +51,7 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
         parameters=[{
             'enable_image_denoising': False,
             'rectified_images': True,
-            'enable_imu_fusion': False,
+            'enable_imu_fusion': True,
             'gyro_noise_density': 0.000244,
             'gyro_random_walk': 0.000019393,
             'accel_noise_density': 0.001862,
@@ -59,7 +59,7 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
             'calibration_frequency': 200.0,
             'image_jitter_threshold_ms': 22.00,
             'base_frame': 'f450_1_base_link',
-            'imu_frame': 'camera_gyro_optical_frame',
+            'imu_frame': 'f450_1_base_link',
             'enable_slam_visualization': True,
             'enable_landmarks_view': True,
             'enable_observations_view': True,
@@ -80,6 +80,9 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
             
             ('visual_slam/camera_info_1',
             f'/{indexed_robot_name}/sensors/realsense_d435/realsense_camera_node/infra2/camera_info'),
+
+            ('visual_slam/imu', 
+            f'/{indexed_robot_name}/aircraft/imu'),
         ],
     )
 
