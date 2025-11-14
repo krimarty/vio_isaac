@@ -57,7 +57,7 @@ def launch_setup(context: LaunchContext) -> Optional[List[LaunchDescriptionEntit
             'accel_noise_density': 0.001862,
             'accel_random_walk': 0.003,
             'calibration_frequency': 200.0,
-            'image_jitter_threshold_ms': 22.00,
+            'image_jitter_threshold_ms': 34.00,
             'base_frame': 'f450_1_base_link',
             'imu_frame': 'f450_1_base_link',
             'enable_slam_visualization': True,
